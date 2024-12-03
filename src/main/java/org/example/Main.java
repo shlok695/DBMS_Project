@@ -34,11 +34,6 @@ public class Main{
 
        //deleteDepot("d1"); // Transaction 2
 
-//        insertProd("p1", "cable", 20);
-//        insertDepot("d1", "New York",9000);
-//        insertStock("p1", "d1", 100);
-
-
     } //end of main method
 
     public static Connection conn(){                        //connection method begin
@@ -285,7 +280,6 @@ public class Main{
 
     //Transaction 6 starts.
     public static void addDepot(String depotId, String location, int capacity, String prodId, int quantity) {
-        //insertProd("p1", "cable", 20);
         String insertDepotQuery = "INSERT INTO Depot (depId, addr, volume) VALUES (?, ?, ?)";
         String insertStockQuery = "INSERT INTO Stock (pCode, dCode, quantity) VALUES (?, ?, ?)";
 
@@ -324,81 +318,5 @@ public class Main{
             e.printStackTrace();
         }
     }//Transaction 6 end.
-
-
-//    public static void insertProd(String prodID, String pName, int price){
-//        String updateProductQuery = String.format("INSERT INTO prod(prodId, pName, price) VALUES ('%s', '%s', '%d')",prodID, pName, price);
-//
-//        try (Connection conn = conn()) {
-//            conn.setAutoCommit(false);
-//
-//            System.out.println("tables before the result");
-//            printTable("prod");
-//
-//            try (PreparedStatement productStmt = conn.prepareStatement(updateProductQuery)){
-//                productStmt.executeUpdate();
-//                conn.commit();
-//                System.out.println("Product added successfully, updated tables below.");
-//                System.out.println("tables after the result");
-//                printTable("prod");
-//            } catch (SQLException e) {
-//                conn.rollback();
-//                System.out.println("Rollback achieved gracefully. Please find detailed error analysis below");
-//                e.printStackTrace();
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    public static void insertDepot(String depID, String addr, int volume ){
-//        String updateDepotQuery = String.format("INSERT INTO depot(depId, addr, volume) VALUES ('%s', '%s', '%d')",depID, addr, volume);
-//
-//        try (Connection conn = conn()) {
-//            conn.setAutoCommit(false);
-//
-//            System.out.println("tables before the result");
-//            printTable("depot");
-//
-//            try (PreparedStatement depotStmt = conn.prepareStatement(updateDepotQuery)){
-//                depotStmt.executeUpdate();
-//                conn.commit();
-//                System.out.println("Depot info inserted successfully, updated tables below.");
-//                System.out.println("tables after the result");
-//                printTable("depot");
-//            } catch (SQLException e) {
-//                conn.rollback();
-//                System.out.println("Rollback achieved gracefully. Please find detailed error analysis below");
-//                e.printStackTrace();
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    public static void insertStock(String pCode, String dCode, int quantity){
-//        String updateStockQuery = String.format("INSERT INTO Stock(pCode, dCode, quantity) VALUES ('%s', '%s', '%d')",pCode, dCode, quantity);
-//
-//        try (Connection conn = conn()) {
-//            conn.setAutoCommit(false);
-//
-//            System.out.println("tables before the result");
-//            printTable("Stock");
-//
-//            try (PreparedStatement stockStmt = conn.prepareStatement(updateStockQuery)){
-//                stockStmt.executeUpdate();
-//                conn.commit();
-//                System.out.println("Stock info inserted successfully, updated tables below.");
-//                System.out.println("tables after the result");
-//                printTable("stock");
-//            } catch (SQLException e) {
-//                conn.rollback();
-//                System.out.println("Rollback achieved gracefully. Please find detailed error analysis below");
-//                e.printStackTrace();
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
 }
 
